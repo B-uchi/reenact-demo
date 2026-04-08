@@ -1,0 +1,26 @@
+{
+  "title": "Tidepool — Q3 board",
+  "columns": [
+    {
+      "id": "todo",
+      "title": "To Do",
+      "cards": [
+        { "id": "card-1", "title": "Write onboarding email", "tag": "growth" },
+        { "id": "card-2", "title": "Fix flaky signup test", "tag": "bug" },
+        { "id": "card-3", "title": "Upgrade Node to 20", "tag": "chore" }
+      ]
+    },
+    {
+      "id": "doing",
+      "title": "In Progress",
+      "cards": [
+        { "id": "card-4", "title": "Rework billing page", "tag": "feature" }
+      ]
+    },
+    {
+      "id": "done",
+      "title": "Done",
+      "cards": []
+    }
+  ]
+}
