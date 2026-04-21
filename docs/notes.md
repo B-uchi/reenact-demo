@@ -4,3 +4,4 @@
 - Empty-state copy for columns with no cards
 - Filter cards from the toolbar
 - style: tighten the card grid
+- Move cards between columns
