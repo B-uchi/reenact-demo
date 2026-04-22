@@ -5,3 +5,4 @@
 - Filter cards from the toolbar
 - style: tighten the card grid
 - Move cards between columns
+- Delete a card from its controls
