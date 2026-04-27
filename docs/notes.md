@@ -8,3 +8,4 @@
 - Delete a card from its controls
 - Accessible labels on the card controls
 - Reset the board back to the seed
+- style: calmer palette
