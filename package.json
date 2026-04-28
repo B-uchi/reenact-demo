@@ -1,11 +1,13 @@
 {
   "name": "tidepool",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "private": true,
+  "description": "A small kanban board. Demo target for Reenact.",
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node scripts/seed.js"
   },
   "engines": {
     "node": ">=18"
