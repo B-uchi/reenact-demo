@@ -9,3 +9,4 @@
 - Accessible labels on the card controls
 - Reset the board back to the seed
 - style: calmer palette
+- Show a footer card count
