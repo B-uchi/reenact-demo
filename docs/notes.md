@@ -12,3 +12,4 @@
 - Show a footer card count
 - Tag chips on cards
 - style: softer card borders
+- Cap card titles at 120 characters
