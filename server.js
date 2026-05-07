@@ -133,7 +133,7 @@ const server = http.createServer(async (req, res) => {
       const update = {
         title: body.title,
         tag: body.tag,
-        columnId: body.columnId,
+        columnId: body.column_id,
         position: body.position,
       }
 
