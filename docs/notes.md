@@ -14,3 +14,4 @@
 - style: softer card borders
 - Cap card titles at 120 characters
 - style: align the toolbar controls
+- docs: expand the API table
