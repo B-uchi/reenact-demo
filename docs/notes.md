@@ -15,3 +15,4 @@
 - Cap card titles at 120 characters
 - style: align the toolbar controls
 - docs: expand the API table
+- Keep the filter box value across renders
