@@ -16,3 +16,4 @@
 - style: align the toolbar controls
 - docs: expand the API table
 - Keep the filter box value across renders
+- style: consistent button sizing
