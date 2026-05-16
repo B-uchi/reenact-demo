@@ -17,3 +17,4 @@
 - docs: expand the API table
 - Keep the filter box value across renders
 - style: consistent button sizing
+- Trim whitespace from new card titles
