@@ -20,3 +20,4 @@
 - Trim whitespace from new card titles
 - Ignore empty submissions in the add-card form
 - style: nicer empty state
+- chore: note supported node versions
