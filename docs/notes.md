@@ -22,3 +22,4 @@
 - style: nicer empty state
 - chore: note supported node versions
 - Surface API failures in a banner
+- style: banner colours
