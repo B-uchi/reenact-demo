@@ -23,3 +23,4 @@
 - chore: note supported node versions
 - Surface API failures in a banner
 - style: banner colours
+- Guard against malformed JSON bodies
