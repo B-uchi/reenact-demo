@@ -119,3 +119,7 @@ button:hover { filter: brightness(1.06); }
   color: var(--muted);
   font-size: 13px;
 }
+
+dialog { border: 1px solid var(--line); border-radius: 12px; padding: 20px; max-width: 620px; }
+dialog h2 { margin-top: 0; font-size: 16px; }
+dialog pre { background: var(--bg); padding: 12px; border-radius: 8px; overflow: auto; max-height: 50vh; }
