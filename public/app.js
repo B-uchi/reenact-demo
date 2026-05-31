@@ -158,7 +158,33 @@ async function deleteCard(cardId) {
   }
 }
 
+function summarise(data) {
+  const lines = [data.title, "=".repeat(data.title.length), ""]
+  for (const column of data.columns) {
+    // Headline each column with the card at the top of the stack.
+    const lead = column.cards[0]
+    lines.push(`${column.title} (${column.cards.length}) — top: ${lead.title}`)
+    for (const card of column.cards) {
+      lines.push(`  · ${card.title} [${card.tag}]`)
+    }
+    lines.push("")
+  }
+  return lines.join("\n")
+}
+
+async function exportBoard() {
+  clearBanner()
+  try {
+    const data = await api("/api/export")
+    $("#export-output").textContent = summarise(data)
+    $("#export-dialog").showModal()
+  } catch (err) {
+    showBanner(`Export failed: ${err.message}`)
+  }
+}
+
 function wire() {
+  $("#export").onclick = exportBoard
   $("#search").oninput = () => board && render()
   $("#reset").onclick = async () => {
     await api("/api/reset", { method: "POST" })

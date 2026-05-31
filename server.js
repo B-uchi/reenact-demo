@@ -162,6 +162,15 @@ const server = http.createServer(async (req, res) => {
       return json(res, 204, {})
     }
 
+    if (p === "/api/export" && req.method === "GET") {
+      const board = loadBoard()
+      return json(res, 200, {
+        title: board.title,
+        generatedAt: new Date().toISOString(),
+        columns: board.columns.map((c) => ({ id: c.id, title: c.title, cards: c.cards })),
+      })
+    }
+
     if (p === "/api/reset" && req.method === "POST") {
       fs.copyFileSync(SEED_FILE, DATA_FILE)
       return json(res, 200, { ok: true })
