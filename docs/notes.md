@@ -24,3 +24,4 @@
 - Surface API failures in a banner
 - style: banner colours
 - Guard against malformed JSON bodies
+- style: export dialog spacing
