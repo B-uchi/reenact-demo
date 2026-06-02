@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+- Board export
+
 ## 0.5.0
 
 - Filter cards from the toolbar
