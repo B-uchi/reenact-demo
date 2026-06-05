@@ -25,3 +25,4 @@
 - style: banner colours
 - Guard against malformed JSON bodies
 - style: export dialog spacing
+- Close the export dialog with Escape
