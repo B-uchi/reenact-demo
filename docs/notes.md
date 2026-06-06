@@ -26,3 +26,4 @@
 - Guard against malformed JSON bodies
 - style: export dialog spacing
 - Close the export dialog with Escape
+- docs: link the export doc from the readme
