@@ -29,3 +29,4 @@
 - docs: link the export doc from the readme
 - style: monospace the export output
 - Cache-Control: no-store on API responses
+- Report the version from /healthz
