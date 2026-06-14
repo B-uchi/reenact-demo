@@ -30,3 +30,4 @@
 - style: monospace the export output
 - Cache-Control: no-store on API responses
 - Report the version from /healthz
+- style: focus rings on controls
