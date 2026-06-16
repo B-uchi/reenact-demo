@@ -1,0 +1,6 @@
+const fs = require("fs")
+const path = require("path")
+const dir = process.env.DATA_DIR || path.join(__dirname, "..", "data")
+fs.mkdirSync(dir, { recursive: true })
+fs.copyFileSync(path.join(__dirname, "..", "seed.json"), path.join(dir, "board.json"))
+console.log("seeded", path.join(dir, "board.json"))
