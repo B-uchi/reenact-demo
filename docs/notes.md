@@ -31,3 +31,4 @@
 - Cache-Control: no-store on API responses
 - Report the version from /healthz
 - style: focus rings on controls
+- docs: mention npm run seed
