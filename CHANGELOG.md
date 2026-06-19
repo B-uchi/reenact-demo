@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0
+
+- Seed script
+- Version reported from `/healthz`
+
 ## 1.1.0
 
 - Board export
