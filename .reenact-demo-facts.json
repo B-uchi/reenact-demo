@@ -1,0 +1,16 @@
+{
+  "bugA": {
+    "sha": "05768e52df04a9cc174614741ec04f43a97e954e",
+    "message": "Add board export",
+    "author": "Devin Alcott",
+    "index": 44
+  },
+  "bugB": {
+    "sha": "c22787b247e6703d5da63c13a40c764740c8ff10",
+    "message": "refactor: normalise the card update payload",
+    "author": "Devin Alcott",
+    "index": 25
+  },
+  "totalCommits": 60,
+  "generated": "2026-09-01T18:17:31.379Z"
+}

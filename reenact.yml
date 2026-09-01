@@ -1,0 +1,22 @@
+# How Reenact boots Tidepool.
+#
+# The app has no dependencies, so there is no `install` step and every git
+# worktree during a bisect starts in well under a second.
+
+repo: reenact-dev/reenact-demo
+boot: node server.js
+ready: /healthz
+port: 3000
+
+# Board state lives in data/board.json and reseeds from seed.json when missing.
+# Clearing it before each boot is what makes a probe at one commit mean the same
+# thing as a probe at another.
+reset: rm -rf data
+env:
+  DATA_DIR: data
+
+limits:
+  maxMinutes: 15
+  maxAgentSteps: 20
+  bisectWidth: 8
+  maxBisectRange: 400

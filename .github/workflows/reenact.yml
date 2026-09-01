@@ -1,0 +1,73 @@
+# Reenact — copy to .github/workflows/reenact.yml
+#
+# Two triggers, both maintainer-driven:
+#   · add the `repro?` label to an issue     → reproduce it
+#   · comment `/reenact` or `/reenact bisect --good v1.2.0`
+#
+# Reenact never runs for someone without write access. That is deliberate: a bot
+# that anyone can point at your infrastructure is a bot that will be pointed at
+# your infrastructure.
+
+name: Reenact
+
+on:
+  issues:
+    types: [labeled]
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write # only to store evidence on the reenact-artifacts branch
+  issues: write
+
+concurrency:
+  group: reenact-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  reenact:
+    # Label `repro?`, or a comment starting with `/reenact` on an issue.
+    if: >
+      (github.event_name == 'issues' && github.event.label.name == 'repro?') ||
+      (github.event_name == 'issue_comment' &&
+       !github.event.issue.pull_request &&
+       startsWith(github.event.comment.body, '/reenact'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the trigger came from a maintainer
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const actor = context.eventName === 'issues'
+              ? context.payload.sender.login
+              : context.payload.comment.user.login
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner, repo: context.repo.repo, username: actor,
+            })
+            if (!['admin', 'write', 'maintain'].includes(data.permission)) {
+              core.setFailed(`${actor} does not have write access; ignoring.`)
+            }
+
+      - uses: actions/checkout@v4
+
+      - name: Work out what was asked for
+        id: parse
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.comment?.body ?? ''
+            const bisect = /^\/reenact\s+bisect/.test(body)
+            core.setOutput('command', bisect ? 'bisect' : 'run')
+            core.setOutput('good', (body.match(/--good\s+(\S+)/) ?? [])[1] ?? '')
+            core.setOutput('width', (body.match(/--width\s+(\d+)/) ?? [])[1] ?? '')
+
+      - uses: reenact-dev/reenact@v0
+        with:
+          command: ${{ steps.parse.outputs.command }}
+          issue: ${{ github.event.issue.number }}
+          good: ${{ steps.parse.outputs.good }}
+          width: ${{ steps.parse.outputs.width }}
+          solari-api-key: ${{ secrets.SOLARI_API_KEY }}
+          # Optional. Without it Reenact falls back to its report parser and
+          # scripted driver, which handle well-formed numbered steps.
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
