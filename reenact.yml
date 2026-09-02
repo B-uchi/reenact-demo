@@ -3,7 +3,7 @@
 # The app has no dependencies, so there is no `install` step and every git
 # worktree during a bisect starts in well under a second.
 
-repo: reenact-dev/reenact-demo
+repo: B-uchi/reenact-demo
 boot: node server.js
 ready: /healthz
 port: 3000

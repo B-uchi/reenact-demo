@@ -61,7 +61,7 @@ jobs:
             core.setOutput('good', (body.match(/--good\s+(\S+)/) ?? [])[1] ?? '')
             core.setOutput('width', (body.match(/--width\s+(\d+)/) ?? [])[1] ?? '')
 
-      - uses: reenact-dev/reenact@v0
+      - uses: B-uchi/reenact@v0
         with:
           command: ${{ steps.parse.outputs.command }}
           issue: ${{ github.event.issue.number }}
